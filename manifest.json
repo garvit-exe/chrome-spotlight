@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Spotlight",
+  "version": "1.0",
+  "description": "Quickly search bookmarks, history, tabs, and execute actions in Chrome.",
+  "permissions": [
+    "tabs",       // Required to search open tabs and switch to them
+    "bookmarks",  // Required to search bookmarks
+    "history",    // Required to search browsing history
+    "management", // Required to list and launch other extensions/apps
+    "storage"     // Required to save user preferences (like shortcut, settings)
+  ],
+  "background": {
+    "service_worker": "background.js" // For Manifest V3
+  },
+  "action": {
+    // Optional: A browser button to also trigger the spotlight, though keyboard is primary
+    "default_popup": "spotlight.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "commands": {
+    "_execute_action": { // Or use "_execute_browser_action" if using default_popup
+      "suggested_key": {
+        "default": "Ctrl+Space", // Common default, might conflict, user can change
+        "mac": "Command+Space"   // Common default on Mac, likely conflicts with system Spotlight
+                                 // Recommend users customize this via chrome://extensions/shortcuts
+      },
+      "description": "Open Chrome Spotlight"
+    }
+    // Note: If using "action.default_popup", this command automatically opens it.
+    // If implementing a custom overlay UI without a default_popup, this command
+    // needs to be handled manually in the background script to trigger the UI.
+    // For simplicity, we'll assume the popup approach initially.
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

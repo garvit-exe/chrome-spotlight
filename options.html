@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chrome Spotlight Options</title>
+    <style> /* Basic styles */
+        body { font-family: sans-serif; padding: 20px; }
+        label { display: block; margin-bottom: 5px; }
+        button { margin-top: 15px; padding: 8px 15px; }
+        .shortcut-info { margin-top: 20px; font-size: 0.9em; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Chrome Spotlight Options</h1>
+
+    <p>Configure your preferences for Chrome Spotlight.</p>
+
+    <!-- Add options here later, e.g., theme, search sources -->
+
+    <div class="shortcut-info">
+        <p>To customize the keyboard shortcut:</p>
+        <ol>
+            <li>Go to <a href="chrome://extensions/shortcuts" target="_blank">chrome://extensions/shortcuts</a>.</li>
+            <li>Find "Chrome Spotlight".</li>
+            <li>Click the edit icon (pencil) next to "Open Chrome Spotlight" and press your desired key combination.</li>
+        </ol>
+         <p>Recommended: Choose a combination that doesn't conflict with system shortcuts (like Cmd+Space on Mac or Alt+Space on Windows).</p>
+    </div>
+
+    <!-- Example: Theme Selector -->
+    <div>
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <!-- <option value="system">System Default</option> -->
+        </select>
+    </div>
+
+    <button id="save-button">Save Preferences</button>
+    <div id="status" style="margin-top: 10px; color: green;"></div>
+
+    <script src="options.js"></script>
+</body>
+</html>

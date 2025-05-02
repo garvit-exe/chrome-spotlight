@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 500px; /* Adjust as needed */
+    max-height: 400px; /* Limit height */
+    overflow: hidden;
+    background-color: #f0f0f0; /* Light mode default */
+}
+
+#spotlight-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#search-input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    box-sizing: border-box; /* Include padding in width */
+    width: 100%;
+}
+
+#results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* Enable scrolling for results */
+    flex-grow: 1; /* Take remaining space */
+}
+
+#results-list li {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#results-list li:last-child {
+    border-bottom: none;
+}
+
+#results-list li.selected {
+    background-color: #007aff; /* Highlight color */
+    color: white;
+}
+
+#results-list li img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    object-fit: contain; /* Prevent distortion */
+}
+
+#results-list li .title {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1; /* Allow title to take space */
+    margin-right: 10px; /* Space before type */
+}
+
+#results-list li .url,
+#results-list li .type-label {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+#results-list li.selected .url,
+#results-list li.selected .type-label {
+    color: #e0e0e0;
+}
+
+/* Basic Dark Mode (can be toggled via options/JS) */
+body.dark-mode {
+     background-color: #333;
+     color: #eee;
+}
+body.dark-mode #search-input {
+    background-color: #444;
+    border-bottom-color: #555;
+    color: #eee;
+}
+body.dark-mode #results-list li {
+    border-bottom-color: #444;
+}
+body.dark-mode #results-list li.selected {
+    background-color: #005ecc; /* Darker highlight */
+}
+body.dark-mode #results-list li .url,
+body.dark-mode #results-list li .type-label {
+    color: #aaa;
+}
+body.dark-mode #results-list li.selected .url,
+body.dark-mode #results-list li.selected .type-label {
+    color: #ccc;
+}
+
+/* Add styles for specific result types if needed */
